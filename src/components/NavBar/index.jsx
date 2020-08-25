@@ -1,5 +1,8 @@
 import React from 'react';
 import './style.scss';
+
+import { connect } from 'react-redux';
+
 import { ReactComponent as Logo } from './../../crown.svg';
 import { Link } from 'react-router-dom';
 
@@ -32,4 +35,8 @@ const NavBar = ({ currentUser }) => {
   );
 };
 
-export default NavBar;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(NavBar);
